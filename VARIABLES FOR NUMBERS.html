@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Visitor Counter</h1>
+    <p id="visitCount">Loading...</p>
+
+    <script>
+        var Name = prompt("Enter your name");
+        var FatherName = prompt("Enter your Father name");
+        var age = prompt("Enter your Age");
+        alert("Welcome " + Name + "\n S/O "+FatherName +"\n You are" +age + "Years Old ");
+        // Check if the visitor count is stored in local storage
+        if (localStorage.getItem("visitCount") === null) {
+            localStorage.setItem("visitCount", 1);
+        } else {
+            var count = parseInt(localStorage.getItem("visitCount")) + 1;
+            localStorage.setItem("visitCount", count);
+        }
+
+        var visitCount = localStorage.getItem("visitCount");
+        var message = "You have visited this site " + visitCount + " times.";
+        document.getElementById("visitCount").textContent = message;
+    </script>
+</body>
+</html>
